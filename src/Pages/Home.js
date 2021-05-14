@@ -3,7 +3,7 @@ import ChartBar from "../components/ChartBar";
 const Home = () => {
   return (
     <div>
-      <ChartBar />
+      <ChartBar /> 
     </div>
   );
 };

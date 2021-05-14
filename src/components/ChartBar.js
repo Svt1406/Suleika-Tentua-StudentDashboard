@@ -1,11 +1,6 @@
-import { studentData } from "../Utils";
-import {
-  VictoryBar,
-  VictoryChart,
-  VictoryTheme,
-  VictoryStack,
-  VictoryGroup
-} from "victory";
+import { studentData } from '../Utils';
+import React from "react";
+import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, BarChart} from "recharts";
 
 // reducer
 const sum = (a, b) => {
@@ -46,19 +41,32 @@ projectList.forEach((project) => {
 //console.log("vals", vals);
 console.log("avg", allvals);
 
-const ChartBar = () => {
-  return (
-    <VictoryChart theme={VictoryTheme.grayscale} domainPadding={120}>
-      <VictoryGroup offset={5} style={{ data: { width: 10 } }}>
-        <VictoryStack colorScale={"red"}>
-          <VictoryBar data={allvals} key={0} x="project" y="dificulty" />
-        </VictoryStack>
-        <VictoryStack colorScale={"green"}>
-          <VictoryBar data={allvals} key={1} x="project" y="niceness" />
-        </VictoryStack>
-      </VictoryGroup>
-    </VictoryChart>
-  );
-};
-
+class ChartBar extends React.Component {
+  render() {
+    return (
+      <div className="BarChart">
+        <BarChart
+          width={1000}
+          height={500}
+          data={allvals}
+          margin={{
+            top: 0,
+            right: 1,
+            left: -5,
+            bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="project" />
+          <YAxis />
+          <Tooltip />
+          <Legend verticalAlign="top" height={36} />
+          <Bar dataKey="dificulty" fill="#f7797d" />
+          <Bar dataKey="niceness" fill="#FBD786" />
+        </BarChart>
+      </div>
+    );
+  }
+}
+ 
 export default ChartBar;
