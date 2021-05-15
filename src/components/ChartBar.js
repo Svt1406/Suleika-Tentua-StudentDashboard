@@ -1,7 +1,16 @@
-import { studentData } from '../Utils';
+import { data } from "../Utils";
 import React from "react";
-import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, BarChart} from "recharts";
+import {
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar,
+  BarChart,
+} from "recharts";
 
+const studentData = data.studentData;
 // reducer
 const sum = (a, b) => {
   return {
@@ -46,27 +55,36 @@ class ChartBar extends React.Component {
     return (
       <div className="BarChart">
         <BarChart
-          width={1000}
-          height={500}
+          width={800}
+          height={400}
           data={allvals}
           margin={{
             top: 0,
             right: 1,
             left: -5,
-            bottom: 0,
+            bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="project" />
-          <YAxis />
+          <XAxis
+            dataKey="project"
+            tick={{
+              tickMargin: 5,
+            }}
+          />
+          <YAxis type="number" tickCount={8} />
           <Tooltip />
-          <Legend verticalAlign="top" height={36} />
-          <Bar dataKey="dificulty" fill="#f7797d" />
-          <Bar dataKey="niceness" fill="#FBD786" />
+          <Legend verticalAlign="top" height={75} />
+          <Bar
+            barSize={10}
+            dataKey="dificulty"
+            fill="#f7797d"
+          />
+          <Bar barSize={10} dataKey="niceness" fill="#FBD786" />
         </BarChart>
       </div>
     );
   }
 }
- 
+
 export default ChartBar;

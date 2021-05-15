@@ -961,4 +961,17 @@ const studentData = [
   },
 ];
 
-export { studentData };
+const names = studentData.map((student) => {
+  return student.name;
+});
+
+const filteredNames = names.filter((value, index, self) => {
+  return self.indexOf(value) === index;
+});
+
+const data = {
+  studentData: studentData,
+  studentNames: filteredNames
+};
+
+export { data };
