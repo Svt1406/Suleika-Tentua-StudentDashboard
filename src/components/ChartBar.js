@@ -52,9 +52,10 @@ console.log("avg", allvals);
 
 class ChartBar extends React.Component {
   render() {
-    return (
-      <div className="BarChart">
-        <BarChart
+    const MakeChart = (student) => {
+      console.log("Userchart is ", student);
+      if (typeof student.student === "undefined") {
+        return (<BarChart
           width={800}
           height={400}
           data={allvals}
@@ -75,13 +76,21 @@ class ChartBar extends React.Component {
           <YAxis type="number" tickCount={8} />
           <Tooltip />
           <Legend verticalAlign="top" height={75} />
-          <Bar
-            barSize={10}
-            dataKey="dificulty"
-            fill="#f7797d"
-          />
+          <Bar barSize={10} dataKey="dificulty" fill="#f7797d" />
           <Bar barSize={10} dataKey="niceness" fill="#FBD786" />
-        </BarChart>
+        </BarChart>);
+      } else {
+        return (
+          <div>
+            <h1>hier moeten we data ophalen van {student.student}</h1>
+          </div>
+        );
+      }
+    };
+
+    return (
+      <div className="BarChart">
+        <MakeChart student={this.props.name} />
       </div>
     );
   }
