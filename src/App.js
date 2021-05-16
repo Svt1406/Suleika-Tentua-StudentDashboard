@@ -11,7 +11,7 @@ function App() {
         <SideBar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/Students/:name" component={Students} />
+          <Route path="/:name" component={Students} />
         </Switch>
       </Router>
     </>

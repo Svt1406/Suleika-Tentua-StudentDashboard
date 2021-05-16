@@ -1,72 +1,69 @@
 .navbar {
-    height: 50px;
-    width: 250px;
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
+  margin: 10px;
+  background: #807182;
+  height: 50px;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
 }
 
 .menu-bars {
-    margin-left: 1rem;
-    font-size: 1.5rem;
-    background: none;
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+  background: none;
 }
 
 .nav-menu {
-    background: #D66D75;
-    width: 150px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    transition: 850ms;
+  margin-top: 60px;
+  margin-left: 10px;
+  background:#807182;
+  width: 125px;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  padding-top: 5px;
 }
 
 .nav-menu.active {
-    left: 0%;
-    transition: 350ms;
+  left: 0%;
+  transition: 350ms;
 }
 
 .nav-text {
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
-    padding: 0;
-    list-style: none;
-    height: 60px;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  list-style: none;
+  height: 40px;
 }
 
-.nav-text a { 
-    text-decoration: none;
-    color: rgb(228, 224, 224);
-    font-size: 18px;
-    width: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    border-radius: 4px;
+.nav-text a {
+  text-decoration: none;
+  color: #e9c7b9;
+  font-size: 0.9rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 4px;
 }
 
 .nav-text a:hover {
-    background-color: #E29587;
-}
-
-.nav-menu-items {
-    width: 100%;
-}
-
-.navbar-toggle {
-    background-color: #D66D75; 
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: baseline;
-    align-items: center;
+  background-color: gray;
 }
 
 span {
-    margin-left: 16px;
+  margin-left: 12px;
 }
+
+.header h2 {
+  color: #e9c7b9;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-top: 5px;
+} 
