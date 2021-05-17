@@ -1,0 +1,13 @@
+.student-container {
+    display: block;
+}
+
+.student-title {
+    text-align: center;
+}
+
+.student-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
