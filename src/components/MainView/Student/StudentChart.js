@@ -1,7 +1,6 @@
-import "../styles/Student.css";
-import { data } from "../Utils";
+import { data } from "../../../Utils";
 import React from "react";
-import Chart from "./Chart";
+import Chart from "../../Chart";
 
 class StudentChart extends React.Component {
   constructor(props) {
