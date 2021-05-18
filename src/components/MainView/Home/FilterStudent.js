@@ -1,6 +1,7 @@
+import * as s from "./FilterStudent.styles";
 import React from "react";
 
-class StudentFilter extends React.Component {
+class FilterStudent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,11 +23,11 @@ class StudentFilter extends React.Component {
 
   render() {
     return (
-      <ul>
+      <s.FilterContainer>
         {this.props.students.map((item, index) => {
           return (
-            <div className="form-control checkbox">
-              <li key={item.value}>
+            <s.FilterUl>
+              <s.FilterLi key={item.value}>
                 <input
                   key={item.id}
                   type="checkbox"
@@ -35,13 +36,13 @@ class StudentFilter extends React.Component {
                   value={item.value}
                 />
                 {item.value}
-              </li>
-            </div>
+              </s.FilterLi>
+            </s.FilterUl>
           );
         })}
-      </ul>
+      </s.FilterContainer>
     );
   }
 }
 
-export default StudentFilter;
+export default FilterStudent;

@@ -21,20 +21,19 @@ export const SidebarContainer = styled.div`
 export const SidebarHeader = styled.h3`
   padding: 20px 0;
   text-align: center;
-  margin-bottom: 10px;
   letter-spacing: 6px;
-  font-family: ${(p) => p.font};
+  font-family: ${p => p.font};
 `;
 
 export const MenuItemContainer = styled.div``;
 
 // Menu items -------------------------------------------------------------
 export const MenuItem = styled.div`
-  ${p=> !p.isSidebarOpen && `
+  ${p => !p.isSidebarOpen && `
     text-align: center;
     ${p.selected && 'background-color: rgba(0, 0, 0, 0.6)'};
   `};
-  padding: 6px 20px;
+  padding: 5px 20px;
   font-weight: 600;
   color: ${p => p.selected ? "rgba(255, 255, 255)" : "rgba(19, 15, 64)"};
   font-family: ${p => p.font};
@@ -80,7 +79,7 @@ export const Icon = styled.img`
 export const TogglerContainer = styled.div`
   position: absolute;
   width: 30%;
-  bottom: 10%;
+  bottom: 2.5%;
   left: 0;
   right: 0;
   margin: 0 auto;

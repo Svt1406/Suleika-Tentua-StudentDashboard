@@ -1,8 +1,9 @@
+import * as s from "./Home.styles";
 import React, { useState } from "react";
 import { data } from "../../../Utils";
 import HomeChart from "./HomeChart";
 import ProjectFilter from "../../ProjectFilter";
-import StudentFilter from "./StudentFilter";
+import FilterStudent from "./FilterStudent";
 
 const Home = () => {
   const names = data.studentNames;
@@ -13,7 +14,6 @@ const Home = () => {
       isChecked: true,
     };
   });
-
 
   //TODO: make me in a reduce.
   const projList = data.studentData.map((student) => {
@@ -44,20 +44,18 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <StudentFilter
+    <s.HomeContainer>
+      <s.HomeHeader>Welcome</s.HomeHeader>
+      <FilterStudent
         students={students}
         changedHandler={handleStudentCheckbox}
       />
-      <HomeChart
-        projects={projects}
-        students={students}
-      />
+      <HomeChart projects={projects} students={students} />
       <ProjectFilter
         projects={projects}
         changedHandler={handleProjectCheckbox}
       />
-    </div>
+    </s.HomeContainer>
   );
 };
 
