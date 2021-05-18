@@ -1,13 +1,20 @@
 import styled from "@emotion/styled";
 
 export const HomeContainer = styled.div`
-  padding-top: 10px;
+display: block;
 `;
 
 export const HomeHeader = styled.h1`
-  font-size: 2rem;
-  font-weight: 400;
-  color: rgba(252, 82, 150, 0.8);
+  font-size: 50px;
+  color: rgba(82, 167, 193, 0.8);
+  padding: 50px 0;
+  font-family: "Kaushan Script";
+`;
+
+export const MainContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 export const FilterContainer = styled.div`

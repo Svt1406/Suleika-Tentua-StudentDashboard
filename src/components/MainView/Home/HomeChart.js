@@ -8,7 +8,7 @@ class HomeChart extends React.Component {
   sum = (a, b) => {
     return {
       project: a.project,
-      dificulty: a.dificulty + b.dificulty,
+      difficulty: a.difficulty + b.difficulty,
       niceness: a.niceness + b.niceness,
     };
   };
@@ -17,7 +17,7 @@ class HomeChart extends React.Component {
     const sums = array.reduce(this.sum);
     return {
       project: sums.project,
-      dificulty: sums.dificulty / array.length,
+      difficulty: sums.difficulty / array.length,
       niceness: sums.niceness / array.length,
     };
   };

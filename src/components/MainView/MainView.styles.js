@@ -1,12 +1,15 @@
 import styled from "@emotion/styled";
 
 export const MainViewContainer = styled.div`
-  width: 80%;
-  height: 100vh;
-  padding: 100px;
+  width: 100%;
   text-align: center;
-
-  h1 {
-    font-size: 2rem;
-  }
+  overflow: auto;
+  background-image: linear-gradient(
+    315deg,
+    rgba(179, 246, 216, 0.1) 0%,
+    rgba(82, 167, 193, 0.1) 74%
+  );
+  z-index: 1;
 `;
+
+

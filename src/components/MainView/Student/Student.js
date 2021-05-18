@@ -1,7 +1,9 @@
+import * as s from "./Student.styles";
 import StudentChart from "./StudentChart";
 import ProjectFilter from "../../ProjectFilter";
 import { data } from "../../../Utils";
 import { useState } from "react";
+import StudentProfile from "./StudentProfile.js";
 
 const Students = (props) => {
   const projList = data.studentData.map((student) => {
@@ -29,18 +31,17 @@ const Students = (props) => {
 
   const studentName = `${props.match.params.name}`;
   return (
-    <div className="student-container">
-      <h1 className="student-title">{`${studentName}'s page`}</h1>
-      <div className="container">
-        <StudentChart className="student-chart" projects={projects} studentName={studentName} />
-      </div>
-      <div>
-        <ProjectFilter
-          projects={projects}
-          changedHandler={handleProjectCheckbox}
-        />
-      </div>
-    </div>
+    <s.StudentMainViewContainer>
+      <s.StudentHeader>{`${studentName}'s Dashboard`}</s.StudentHeader>
+      <s.StudentContainer>
+        <StudentChart projects={projects} studentName={studentName} />
+        <StudentProfile />
+      </s.StudentContainer>
+      <ProjectFilter
+        projects={projects}
+        changedHandler={handleProjectCheckbox}
+      />
+    </s.StudentMainViewContainer>
   );
 };
 

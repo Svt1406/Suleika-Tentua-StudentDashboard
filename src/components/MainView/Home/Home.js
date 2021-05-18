@@ -46,11 +46,15 @@ const Home = () => {
   return (
     <s.HomeContainer>
       <s.HomeHeader>Welcome</s.HomeHeader>
-      <FilterStudent
-        students={students}
-        changedHandler={handleStudentCheckbox}
-      />
-      <HomeChart projects={projects} students={students} />
+      <s.MainContainer>
+        <HomeChart
+          projects={projects}
+          students={students} />
+        <FilterStudent
+          students={students}
+          changedHandler={handleStudentCheckbox}
+        />
+      </s.MainContainer>
       <ProjectFilter
         projects={projects}
         changedHandler={handleProjectCheckbox}

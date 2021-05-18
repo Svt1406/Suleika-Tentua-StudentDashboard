@@ -6,8 +6,8 @@ export const SidebarContainer = styled.div`
   min-width: 80px;
   background-image: linear-gradient(
       315deg,
-      rgb(134, 22, 87, 0.8) 0%,
-      rgb(255, 166, 158, 0.8) 74%
+      rgba(179, 246, 216, 0.8) 0%,
+      rgba(82, 167, 193, 0.8) 74%
     ),
     url(${(p) => p.backgroundImage});
   background-size: cover;
@@ -16,10 +16,11 @@ export const SidebarContainer = styled.div`
   color: #fff;
   position: relative;
   transition: 0.2s ease-in all;
+  height: 100vh;
 `;
 
 export const SidebarHeader = styled.h3`
-  padding: 20px 0;
+  padding: 25px 0;
   text-align: center;
   letter-spacing: 6px;
   font-family: ${p => p.font};
@@ -29,14 +30,16 @@ export const MenuItemContainer = styled.div``;
 
 // Menu items -------------------------------------------------------------
 export const MenuItem = styled.div`
-  ${p => !p.isSidebarOpen && `
+  ${(p) =>
+    !p.isSidebarOpen &&
+    `
     text-align: center;
-    ${p.selected && 'background-color: rgba(0, 0, 0, 0.6)'};
+    ${p.selected && "background-color: rgba(0, 0, 0, 0.6)"};
   `};
   padding: 5px 20px;
   font-weight: 600;
-  color: ${p => p.selected ? "rgba(255, 255, 255)" : "rgba(19, 15, 64)"};
-  font-family: ${p => p.font};
+  color: ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(19, 15, 64)")};
+  font-family: ${(p) => p.font};
   white-space: nowrap;
   position: relative;
   transition: 0.2s ease-in all;
@@ -49,16 +52,19 @@ export const MenuItem = styled.div`
   &::after {
     content: "";
     border: 1px solid
-      ${p => p.selected ? "rgba(255, 255, 255)" : "rgba(225, 112, 85)"};
-    display: ${p => p.isSidebarOpen && p.selected && p.isOpen ? "none" : "block"};
+      ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(225, 112, 85)")};
+    display: ${(p) =>
+      p.isSidebarOpen && p.selected && p.isOpen ? "none" : "block"};
     margin: 8px 0px 4px;
     transition: 0.1s ease-in all;
   }
 
-  ${p =>!p.selected && `
+  ${(p) =>
+    !p.selected &&
+    `
     &:hover {
       &:after {
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid #ebbba7;
         transition: .1s ease-in all;
       }
     }

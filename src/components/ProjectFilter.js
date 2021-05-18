@@ -1,5 +1,5 @@
-import { data } from "../Utils";
 import React from "react";
+import * as s from "../components/ProjectFilter.styles";
 
 class ProjectFilter extends React.Component {
   constructor(props) {
@@ -14,7 +14,16 @@ class ProjectFilter extends React.Component {
 
   handleAllChecked = (event) => {
     let projects = this.state.projects;
-    projects.forEach((project) => (project.isChecked = event.target.checked));
+    projects.forEach((project) => (project.isChecked = true));
+    this.setState({ projects: projects });
+    let newstate = { projects: projects };
+    this.setState(newstate);
+    this.handler(newstate);
+  };
+
+  handleAllUnChecked = (event) => {
+    let projects = this.state.projects;
+    projects.forEach((project) => (project.isChecked = false));
     this.setState({ projects: projects });
     let newstate = { projects: projects };
     this.setState(newstate);
@@ -34,31 +43,35 @@ class ProjectFilter extends React.Component {
 
   render() {
     return (
-      <div className="filter-container">
-        <ul>
-          {this.state.projects.map((project) => {
-            return (
-              <li key={project.value}>
-                <input
-                  key={project.id}
-                  type="checkbox"
-                  onChange={(event) => this.handleCheckChieldElement(event)}
-                  checked={project.isChecked}
-                  value={project.value}
-                />
-                {project.value}
-              </li>
-            );
-          })}
-        </ul>
-        <input
+      <s.ProjectFilter>
+        <s.Header>Please select below which projects you want to see in the Chart:</s.Header>
+        {this.state.projects.map((project) => {
+          return (
+            <s.ProjectFilterP key={project.value}>
+              <input
+                key={project.id}
+                type="checkbox"
+                onChange={(event) => this.handleCheckChieldElement(event)}
+                checked={project.isChecked}
+                value={project.value}
+              />
+              <s.ProjectFilterLabel>{project.value}</s.ProjectFilterLabel>
+            </s.ProjectFilterP>
+          );
+        })}
+          <s.Input
+            key="0"
+            type="reset"
+            onClick={this.handleAllUnChecked}
+            value="Reset"
+          />
+        <s.Input
           key="0"
-          type="checkbox"
+          type="button"
           onClick={this.handleAllChecked}
-          value="checkedAll"
+          value="Select all"
         />
-        <p>Check / uncheck all</p>
-      </div>
+      </s.ProjectFilter>
     );
   }
 }

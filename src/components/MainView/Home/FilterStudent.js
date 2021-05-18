@@ -26,18 +26,16 @@ class FilterStudent extends React.Component {
       <s.FilterContainer>
         {this.props.students.map((item, index) => {
           return (
-            <s.FilterUl>
-              <s.FilterLi key={item.value}>
-                <input
-                  key={item.id}
-                  type="checkbox"
-                  onChange={(event) => this.handleCheckbox(event)}
-                  checked={item.isChecked}
-                  value={item.value}
-                />
-                {item.value}
-              </s.FilterLi>
-            </s.FilterUl>
+            <s.FilterP>
+              <s.Input
+                key={item.id}
+                type="checkbox"
+                onChange={(event) => this.handleCheckbox(event)}
+                checked={item.isChecked}
+                value={item.value}
+              />
+              <s.FilterLabel>{item.value}</s.FilterLabel>
+            </s.FilterP>
           );
         })}
       </s.FilterContainer>
