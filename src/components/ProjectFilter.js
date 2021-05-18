@@ -1,4 +1,3 @@
-import "../styles/ProjectFilter.css";
 import { data } from "../Utils";
 import React from "react";
 
