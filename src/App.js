@@ -1,5 +1,6 @@
 import React from "react";
 import * as s from "./App.styles";
+import { data } from "./Utils";
 
 // Components
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -11,27 +12,23 @@ const App = () => {
     fullName: "Winc Dashboard",
     shortName: "WD",
   };
-  const menuItems = [
-    { name: "Home", to: "/home", icon: "/icons/home.svg", subMenuItems: [] },
-    {
-      name: "Evelyn",
-      to: "/Evelyn",
+
+  const homeItem = {
+    name: "Home", to: "/",
+    icon: "/icons/home.svg",
+    subMenuItems: []
+  };
+
+  const menuItems = data.studentNames.map((student) => {
+    console.log(student)
+    return {
+      name: student,
+      to: `/${student}`,
       icon: "/icons/about.svg",
-      subMenuItems: [],
-    },
-    {
-      name: "Aranka",
-      to: "/Aranka",
-      icon: "/icons/about.svg",
-      subMenuItems: [],
-    },
-    {
-      name: "Floris",
-      to: "/Floris",
-      icon: "/icons/about.svg",
-      subMenuItems: [],
-    },
-  ];
+    }
+  });
+  // add the hardcoded home item to the top of the sidebar
+  menuItems.unshift(homeItem);
 
  const fonts = {
    header: "Kaushan Script",
