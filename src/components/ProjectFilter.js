@@ -4,14 +4,12 @@ import React from "react";
 class ProjectFilter extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
 
     this.state = {
       projects: props.projects,
     };
 
     this.handler = props.changedHandler;
-    console.log("state", this.state);
   }
 
   handleAllChecked = (event) => {
