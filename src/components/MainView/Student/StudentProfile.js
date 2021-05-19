@@ -3,7 +3,6 @@ import React from "react";
 
 class StudentProfile extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <s.StudentProfileContainer>
         <s.StudentImage

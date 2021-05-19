@@ -22,6 +22,30 @@ class HomeChart extends React.Component {
     };
   };
 
+  projectSorter = (a, b) => {
+    if (a.start === b.start) {
+      return 0;
+    } else {
+      return a.start < b.start ? -1 : 1;
+    }
+  };
+
+  difficultySorter = (a, b) => {
+    if (a.difficulty === b.difficulty) {
+      return 0;
+    } else {
+      return a.difficulty < b.difficulty ? -1 : 1;
+    }
+  };
+
+  nicenessSorter = (a, b) => {
+    if (a.niceness === b.niceness) {
+      return 0;
+    } else {
+      return a.niceness < b.niceness ? -1 : 1;
+    }
+  };
+
   render() {
     const activeProjects = this.props.projects.reduce((filtered, project) => {
       if (project.isChecked) {
@@ -57,6 +81,14 @@ class HomeChart extends React.Component {
         allvals.push(this.getAverage(vals));
       }
     });
+
+    if (this.props.sorting === "niceness") {
+      allvals.sort(this.nicenessSorter);
+    } else if (this.props.sorting === "difficulty") {
+      allvals.sort(this.difficultySorter);
+    } else {
+      allvals.sort(this.projectSorter);
+    }
 
     return (
       <>

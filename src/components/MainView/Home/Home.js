@@ -4,6 +4,7 @@ import { data } from "../../../Utils";
 import HomeChart from "./HomeChart";
 import ProjectFilter from "../../ProjectFilter";
 import FilterStudent from "./FilterStudent";
+import ProjectSorter from "../../ProjectSorter";
 
 const Home = () => {
   const names = data.studentProfiles;
@@ -32,8 +33,11 @@ const Home = () => {
     };
   });
 
+  const initialSorting = { sorting: "project" };
+
   const [projects, setProjects] = useState(initialState);
   const [students, setStudents] = useState(initialStateNames);
+  const [sorting, setSorting] = useState(initialSorting);
 
   const handleStudentCheckbox = (studentState) => {
     setStudents([...studentState.students]);
@@ -43,13 +47,15 @@ const Home = () => {
     setProjects([...state.projects]);
   };
 
+  const handleSortingChanged = (state) => {
+    setSorting(state);
+  };
+
   return (
     <s.HomeContainer>
       <s.HomeHeader>Welcome</s.HomeHeader>
       <s.MainContainer>
-        <HomeChart
-          projects={projects}
-          students={students} />
+        <HomeChart projects={projects} students={students} sorting={sorting} />
         <FilterStudent
           students={students}
           changedHandler={handleStudentCheckbox}
@@ -58,6 +64,10 @@ const Home = () => {
       <ProjectFilter
         projects={projects}
         changedHandler={handleProjectCheckbox}
+      />
+      <ProjectSorter
+        selectedsorting={sorting}
+        changedHandler={handleSortingChanged}
       />
     </s.HomeContainer>
   );
