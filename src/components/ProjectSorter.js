@@ -5,7 +5,6 @@ class ProjectSorter extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log("filter", props)
     this.state = {
       selectedOption: props.selectedsorting.sorting,
     };

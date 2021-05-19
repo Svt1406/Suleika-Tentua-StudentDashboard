@@ -26,9 +26,8 @@ class FilterStudent extends React.Component {
       <s.FilterContainer>
         {this.props.students.map((item, index) => {
           return (
-            <s.FilterP>
+            <s.FilterP key={item.id}>
               <s.Input
-                key={item.id}
                 type="checkbox"
                 onChange={(event) => this.handleCheckbox(event)}
                 checked={item.isChecked}

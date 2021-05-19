@@ -50,9 +50,8 @@ const Sidebar = (props) => {
     const isItemSelected = selected === item.name;
 
     return (
-      <Link to={item.to} style={{ textDecoration: "none" }}>
+      <Link key={index}  to={item.to} style={{ textDecoration: "none" }}>
         <s.MenuItem
-          key={index}
           font={fonts.menu}
           selected={isItemSelected}
           onClick={() => handleMenuItemClick(item.name)}

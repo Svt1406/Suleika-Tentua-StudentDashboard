@@ -49,7 +49,6 @@ class ProjectFilter extends React.Component {
           return (
             <s.ProjectFilterP key={project.value}>
               <input
-                key={project.id}
                 type="checkbox"
                 onChange={(event) => this.handleCheckChieldElement(event)}
                 checked={project.isChecked}
@@ -66,7 +65,7 @@ class ProjectFilter extends React.Component {
             value="Reset"
           />
         <s.Input
-          key="0"
+          key="1"
           type="button"
           onClick={this.handleAllChecked}
           value="Select all"
