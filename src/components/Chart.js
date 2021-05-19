@@ -8,7 +8,6 @@ import {
   Bar,
   BarChart,
   ResponsiveContainer,
-  Label,
 } from "recharts";
 
 const Chart = ({ data }) => {

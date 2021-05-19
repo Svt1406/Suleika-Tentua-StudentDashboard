@@ -19,11 +19,10 @@ const App = () => {
     subMenuItems: []
   };
 
-  const menuItems = data.studentNames.map((student) => {
-    console.log(student)
+  const menuItems = data.studentProfiles.map((student) => {
     return {
-      name: student,
-      to: `/${student}`,
+      name: student.first_name,
+      to: `/${student.first_name}`,
       icon: "/icons/about.svg",
     }
   });

@@ -961,17 +961,122 @@ const studentData = [
   },
 ];
 
-const names = studentData.map((student) => {
-  return student.name;
-});
-
-const filteredNames = names.filter((value, index, self) => {
-  return self.indexOf(value) === index;
-});
+const studentProfiles = [
+  {
+    first_name: "Evelyn",
+    last_name: "Scheffler",
+    date_of_birth: "1996-11-02T17:59:18.176Z",
+    email: "evelyn.scheffler@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/women/50.jpg",
+      medium: "https://randomuser.me/api/portraits/med/women/50.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/women/50.jpg",
+    },
+  },
+  {
+    first_name: "Aranka",
+    last_name: "Rasmussen",
+    date_of_birth: "1992-04-11T10:14:34.583Z",
+    email: "aranka.rasmussen@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/women/94.jpg",
+      medium: "https://randomuser.me/api/portraits/med/women/94.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/women/94.jpg",
+    },
+  },
+  {
+    first_name: "Floris",
+    last_name: "Hart",
+    date_of_birth: "1997-09-05T16:24:07.307Z",
+    email: "floris.hart@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/35.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/35.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/35.jpg",
+    },
+  },
+  {
+    first_name: "Hector",
+    last_name: "Giraud",
+    date_of_birth: "1997-11-18T05:47:37.006Z",
+    email: "hector.giraud@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/53.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/53.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/53.jpg",
+    },
+  },
+  {
+    first_name: "Martina",
+    last_name: "Kim",
+    date_of_birth: "1996-06-11T22:06:03.079Z",
+    email: "martina.kim@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/women/21.jpg",
+      medium: "https://randomuser.me/api/portraits/med/women/21.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/women/21.jpg",
+    },
+  },
+  {
+    first_name: "Maurits",
+    last_name: "Hamre",
+    date_of_birth: "1998-05-25T05:07:35.054Z",
+    email: "maurits.hamre@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/5.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/5.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/5.jpg",
+    },
+  },
+  {
+    first_name: "Rahima",
+    last_name: "Porter",
+    date_of_birth: "1996-05-01T15:22:10.168Z",
+    email: "rahima.porter@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/women/23.jpg",
+      medium: "https://randomuser.me/api/portraits/med/women/23.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/women/23.jpg",
+    },
+  },
+  {
+    first_name: "Sandra",
+    last_name: "Hayes",
+    date_of_birth: "1995-09-23T17:24:21.230Z",
+    email: "sandra.hayes@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/women/48.jpg",
+      medium: "https://randomuser.me/api/portraits/med/women/48.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/women/48.jpg",
+    },
+  },
+  {
+    first_name: "Wietske",
+    last_name: "Johansen",
+    date_of_birth: "1996-06-07T20:19:00.289Z",
+    email: "wietske.johansen@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/men/2.jpg",
+      medium: "https://randomuser.me/api/portraits/med/men/2.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/men/2.jpg",
+    },
+  },
+  {
+    first_name: "Storm",
+    last_name: "Ramos",
+    date_of_birth: "1992-11-22T05:58:33.685Z",
+    email: "storm.ramos@wincacademy.nl",
+    picture: {
+      large: "https://randomuser.me/api/portraits/women/24.jpg",
+      medium: "https://randomuser.me/api/portraits/med/women/24.jpg",
+      thumbnail: "https://randomuser.me/api/portraits/thumb/women/24.jpg",
+    },
+  },
+];
 
 const data = {
   studentData: studentData,
-  studentNames: filteredNames
+  studentProfiles: studentProfiles,
 };
 
 export { data };

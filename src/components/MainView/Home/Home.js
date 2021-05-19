@@ -6,11 +6,11 @@ import ProjectFilter from "../../ProjectFilter";
 import FilterStudent from "./FilterStudent";
 
 const Home = () => {
-  const names = data.studentNames;
+  const names = data.studentProfiles;
   const initialStateNames = names.map((name, index) => {
     return {
       id: index,
-      value: name,
+      value: name.first_name,
       isChecked: true,
     };
   });

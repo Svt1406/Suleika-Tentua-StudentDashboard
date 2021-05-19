@@ -3,11 +3,6 @@ import React from "react";
 import Chart from "../../Chart";
 
 class StudentChart extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log("studentchart", props);
-  }
-
   render() {
     const activeProjectsTmp = this.props.projects.filter((active) => {
       return active.isChecked;

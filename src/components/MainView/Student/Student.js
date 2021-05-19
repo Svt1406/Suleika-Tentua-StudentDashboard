@@ -25,17 +25,21 @@ const Students = (props) => {
   const [projects, setProjects] = useState(initialState);
 
   const handleProjectCheckbox = (state) => {
-    console.log("student bam bam", state);
     setProjects([...state.projects]);
   };
 
   const studentName = `${props.match.params.name}`;
+  const student = data.studentProfiles.filter((profile) => {
+    return profile.first_name === studentName;
+  });
+  console.log("Student", student)
+
   return (
     <s.StudentMainViewContainer>
       <s.StudentHeader>{`${studentName}'s Dashboard`}</s.StudentHeader>
       <s.StudentContainer>
         <StudentChart projects={projects} studentName={studentName} />
-        <StudentProfile />
+        <StudentProfile student={student[0]} />
       </s.StudentContainer>
       <ProjectFilter
         projects={projects}

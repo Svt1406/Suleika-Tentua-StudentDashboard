@@ -49,11 +49,13 @@ class HomeChart extends React.Component {
 
     let allvals = [];
     activeProjects.forEach((project) => {
-      const vals = activeData.filter((value) => {
-        return value.project === project;
-      });
+      if (activeData.length > 0) {
+        const vals = activeData.filter((value) => {
+          return value.project === project;
+        });
 
-      allvals.push(this.getAverage(vals));
+        allvals.push(this.getAverage(vals));
+      }
     });
 
     return (
