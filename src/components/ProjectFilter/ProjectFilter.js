@@ -1,5 +1,5 @@
 import React from "react";
-import * as s from "../components/ProjectFilter.styles";
+import * as s from "../ProjectFilter/ProjectFilter.styles";
 
 class ProjectFilter extends React.Component {
   constructor(props) {
@@ -44,11 +44,11 @@ class ProjectFilter extends React.Component {
   render() {
     return (
       <s.ProjectFilter>
-        <s.Header>Please select below which projects you want to see in the Chart:</s.Header>
+        <s.Header>Project Selection</s.Header>
         {this.state.projects.map((project) => {
           return (
             <s.ProjectFilterP key={project.value}>
-              <input
+              <s.ProjectInput
                 type="checkbox"
                 onChange={(event) => this.handleCheckChieldElement(event)}
                 checked={project.isChecked}
@@ -58,12 +58,12 @@ class ProjectFilter extends React.Component {
             </s.ProjectFilterP>
           );
         })}
-          <s.Input
-            key="0"
-            type="reset"
-            onClick={this.handleAllUnChecked}
-            value="Reset"
-          />
+        <s.Input
+          key="0"
+          type="reset"
+          onClick={this.handleAllUnChecked}
+          value="Reset"
+        />
         <s.Input
           key="1"
           type="button"

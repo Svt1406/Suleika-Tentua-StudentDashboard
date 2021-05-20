@@ -1,13 +1,15 @@
 import { data } from "../../../Utils";
 import React from "react";
 import Chart from "../../Chart";
+import ChartLine from "../../ChartLine";
+import Table from "../../Table/Table";
 
 class StudentChart extends React.Component {
   projectSorter = (a, b) => {
-    if (a.start === b.start) {
+    if (a.project === b.project) {
       return 0;
     } else {
-      return a.start < b.start ? -1 : 1;
+      return a.project < b.project ? -1 : 1;
     }
   };
 
@@ -44,19 +46,37 @@ class StudentChart extends React.Component {
       return activeProjects.includes(value.project);
     });
 
-    if (this.props.sorting === "niceness") {
+    if (this.props.settings.sorting === "niceness") {
       renderData.sort(this.nicenessSorter);
-    } else if (this.props.sorting === "difficulty") {
+    } else if (this.props.settings.sorting === "difficulty") {
       renderData.sort(this.difficultySorter);
     } else {
       renderData.sort(this.projectSorter);
     }
 
-    return (
-      <>
-        <Chart data={renderData} />
-      </>
-    );
+    if (this.props.settings.direction === "dsc") {
+      renderData.reverse();
+    }
+
+    if (this.props.settings.type === "table") {
+      return (
+        <>
+          <Table data={renderData} />
+        </>
+      );
+    } else if (this.props.settings.type === "line") {
+      return (
+        <>
+          <ChartLine data={renderData} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Chart data={renderData} />
+        </>
+      );
+    }
   }
 }
 

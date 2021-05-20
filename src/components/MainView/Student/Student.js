@@ -1,10 +1,10 @@
 import * as s from "./Student.styles";
 import StudentChart from "./StudentChart";
-import ProjectFilter from "../../ProjectFilter";
+import ProjectFilter from "../../ProjectFilter/ProjectFilter";
 import { data } from "../../../Utils";
 import { useState } from "react";
 import StudentProfile from "./StudentProfile.js";
-import ProjectSorter from "../../ProjectSorter";
+import ProjectSorter from "../../ProjectSorter/ProjectSorter";
 
 const Students = (props) => {
   const projList = data.studentData.map((student) => {
@@ -23,18 +23,23 @@ const Students = (props) => {
     };
   });
 
-  const initialSorting = {sorting: "project"};
+  const initialPlotSettings = {
+    sorting: "project",
+    type: "bar",
+    direction: "asc",
+    plot: "all" /*not implemented yet */,
+  };
 
   const [projects, setProjects] = useState(initialState);
-  const [sorting, setSorting] = useState(initialSorting);
+  const [settings, setPlotSettings] = useState(initialPlotSettings);
 
   const handleProjectCheckbox = (state) => {
     setProjects([...state.projects]);
   };
 
   const handleSortingChanged = (state) => {
-    setSorting(state);
-  }
+    setPlotSettings({ ...state });
+  };
 
   const studentName = `${props.match.params.name}`;
   const student = data.studentProfiles.filter((profile) => {
@@ -43,21 +48,31 @@ const Students = (props) => {
 
   return (
     <s.StudentMainViewContainer>
-      <s.StudentHeader>{`${studentName}'s Dashboard`}</s.StudentHeader>
-      <s.StudentContainer>
-        <StudentChart projects={projects} studentName={studentName} sorting={sorting}/>
+      <s.StudentProfile>
+        <s.StudentHeader>{`${studentName}'s Dashboard`}</s.StudentHeader>
         <StudentProfile student={student[0]} />
+      </s.StudentProfile>
+      <s.StudentContainer>
+        <StudentChart
+          projects={projects}
+          studentName={studentName}
+          settings={settings}
+        />
       </s.StudentContainer>
+      <s.MainContainer>
+        <ProjectSorter
+          settings={settings}
+          changedHandler={handleSortingChanged}
+        />
+      </s.MainContainer>
       <ProjectFilter
         projects={projects}
         changedHandler={handleProjectCheckbox}
-      />
-      <ProjectSorter
-        selectedsorting={sorting}
-        changedHandler={handleSortingChanged}
       />
     </s.StudentMainViewContainer>
   );
 };
 
 export default Students;
+
+<s.StudentProfileContainer></s.StudentProfileContainer>;

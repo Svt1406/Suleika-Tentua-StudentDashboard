@@ -13,17 +13,16 @@ export const SidebarContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  color: #fff;
+  color: rgba(255, 255, 255);
   position: relative;
   transition: 0.2s ease-in all;
-  height: 100vh;
 `;
 
 export const SidebarHeader = styled.h3`
   padding: 25px 0;
   text-align: center;
   letter-spacing: 6px;
-  font-family: ${p => p.font};
+  font-family: ${(p) => p.font};
 `;
 
 export const MenuItemContainer = styled.div``;
@@ -44,12 +43,12 @@ export const MenuItem = styled.div`
   position: relative;
   transition: 0.2s ease-in all;
 
-  &:hover {
+  :hover {
     color: rgba(255, 255, 255);
     transition: 0.1s ease-in all;
   }
 
-  &::after {
+  ::after {
     content: "";
     border: 1px solid
       ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(225, 112, 85)")};
@@ -62,7 +61,7 @@ export const MenuItem = styled.div`
   ${(p) =>
     !p.selected &&
     `
-    &:hover {
+    :hover {
       &:after {
         border: 1px solid #ebbba7;
         transition: .1s ease-in all;
@@ -72,13 +71,16 @@ export const MenuItem = styled.div`
 `;
 
 export const Text = styled.p`
-  display: ${p => p.isSidebarOpen ? "inline" : "none"};
+  display: ${(p) => (p.isSidebarOpen ? "inline" : "none")};
 `;
 
 export const Icon = styled.img`
-  ${p => p.isSidebarOpen && `padding-right: 20px; transition: .2s ease-in padding-right`};
+  ${(p) =>
+    p.isSidebarOpen &&
+    `padding-right: 20px; transition: 0.2s ease-in padding-right`};
   height: 16px;
   width: 16px;
+  color: #fff;
 `;
 
 // Toggler -----------------------------------------------------------------------------
@@ -89,14 +91,14 @@ export const TogglerContainer = styled.div`
   left: 0;
   right: 0;
   margin: 0 auto;
-`
+`;
 
 export const Toggler = styled.div`
   height: 40px;
   cursor: pointer;
   position: relative;
 
-  &:after {
+  ::after {
     content: "";
     position: absolute;
     left: 0;

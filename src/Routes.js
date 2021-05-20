@@ -8,8 +8,8 @@ import Students from "./components/MainView/Student/Student";
 const Routes = () => {
   return (
     <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/:name" component={Students} />
+      <Route path="/" exact component={Home} />
+      <Route path="/:name" component={Students} />
     </Switch>
   );
 };

@@ -1,8 +1,6 @@
 import React from "react";
 import * as s from "./App.styles";
 import { data } from "./Utils";
-
-// Components
 import Sidebar from "./components/Sidebar/Sidebar";
 import MainView from "./components/MainView/MainView";
 
@@ -14,9 +12,10 @@ const App = () => {
   };
 
   const homeItem = {
-    name: "Home", to: "/",
+    name: "Home",
+    to: "/",
     icon: "/icons/home.svg",
-    subMenuItems: []
+    subMenuItems: [],
   };
 
   const menuItems = data.studentProfiles.map((student) => {
@@ -24,15 +23,15 @@ const App = () => {
       name: student.first_name,
       to: `/${student.first_name}`,
       icon: "/icons/about.svg",
-    }
+    };
   });
   // add the hardcoded home item to the top of the sidebar
   menuItems.unshift(homeItem);
 
- const fonts = {
-   header: "Kaushan Script",
-   menu: "Poppins",
- };
+  const fonts = {
+    header: "Kaushan Script",
+    menu: "Poppins",
+  };
 
   return (
     <s.App>

@@ -5,15 +5,15 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  Bar,
-  BarChart,
+  Line,
+  LineChart,
   ResponsiveContainer,
 } from "recharts";
 
-const Chart = ({ data }) => {
+const ChartLine = ({ data }) => {
   return (
-    <ResponsiveContainer width="90%" height={400}>
-      <BarChart
+    <ResponsiveContainer width="90%" height={450}>
+      <LineChart
         data={data}
         margin={{
           top: 0,
@@ -38,22 +38,12 @@ const Chart = ({ data }) => {
           interval={1}
         />
         <Tooltip cursor={{ fill: "#ecf0f1" }} />
-        <Legend verticalAlign="top" height={30} />
-        <Bar
-          barSize={10}
-          dataKey="difficulty"
-          fill="#028090"
-          radius={[10, 10, 10, 10]}
-        />
-        <Bar
-          barSize={10}
-          dataKey="niceness"
-          fill="#dfa375"
-          radius={[10, 10, 10, 10]}
-        />
-      </BarChart>
+        <Legend verticalAlign="top" height={25} />
+        <Line type="monotone" dataKey="difficulty" stroke="#028090" />
+        <Line type="monotone" dataKey="niceness" stroke="#dfa375" />
+      </LineChart>
     </ResponsiveContainer>
   );
 };
 
-export default Chart;
+export default ChartLine;

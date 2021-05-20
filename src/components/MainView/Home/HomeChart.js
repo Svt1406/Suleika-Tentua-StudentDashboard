@@ -1,6 +1,8 @@
 import { data } from "../../../Utils"; //TOOD remove me
 import React from "react";
 import Chart from "../../Chart";
+import ChartLine from "../../ChartLine";
+import Table from "../../Table/Table";
 
 // reducer
 
@@ -23,10 +25,10 @@ class HomeChart extends React.Component {
   };
 
   projectSorter = (a, b) => {
-    if (a.start === b.start) {
+    if (a.project === b.project) {
       return 0;
     } else {
-      return a.start < b.start ? -1 : 1;
+      return a.project < b.project ? -1 : 1;
     }
   };
 
@@ -82,19 +84,37 @@ class HomeChart extends React.Component {
       }
     });
 
-    if (this.props.sorting === "niceness") {
+    if (this.props.settings.sorting === "niceness") {
       allvals.sort(this.nicenessSorter);
-    } else if (this.props.sorting === "difficulty") {
+    } else if (this.props.settings.sorting === "difficulty") {
       allvals.sort(this.difficultySorter);
     } else {
       allvals.sort(this.projectSorter);
     }
 
-    return (
-      <>
-        <Chart data={allvals} />
-      </>
-    );
+    if (this.props.settings.direction === "dsc") {
+      allvals.reverse();
+    }
+
+    if (this.props.settings.type === "table") {
+      return (
+        <>
+          <Table data={allvals} />
+        </>
+      );
+    } else if (this.props.settings.type === "line") {
+      return (
+        <>
+          <ChartLine data={allvals} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Chart data={allvals} />
+        </>
+      );
+    }
   }
 }
 

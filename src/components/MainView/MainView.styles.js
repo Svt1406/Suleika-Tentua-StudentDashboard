@@ -11,5 +11,3 @@ export const MainViewContainer = styled.div`
   );
   z-index: 1;
 `;
-
-

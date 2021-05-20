@@ -1,10 +1,10 @@
 import * as s from "./Home.styles";
 import React, { useState } from "react";
 import { data } from "../../../Utils";
-import HomeChart from "./HomeChart";
-import ProjectFilter from "../../ProjectFilter";
+import HomeChart from "../Home/HomeChart";
+import ProjectFilter from "../../ProjectFilter/ProjectFilter";
 import FilterStudent from "./FilterStudent";
-import ProjectSorter from "../../ProjectSorter";
+import ProjectSorter from "../../ProjectSorter/ProjectSorter";
 
 const Home = () => {
   const names = data.studentProfiles;
@@ -33,11 +33,16 @@ const Home = () => {
     };
   });
 
-  const initialSorting = { sorting: "project" };
+  const initialPlotSettings = {
+    sorting: "project",
+    type: "bar",
+    direction: "asc",
+    plot: "all" /*not implemented yet */,
+  };
 
   const [projects, setProjects] = useState(initialState);
   const [students, setStudents] = useState(initialStateNames);
-  const [sorting, setSorting] = useState(initialSorting);
+  const [settings, setPlotSettings] = useState(initialPlotSettings);
 
   const handleStudentCheckbox = (studentState) => {
     setStudents([...studentState.students]);
@@ -48,26 +53,32 @@ const Home = () => {
   };
 
   const handleSortingChanged = (state) => {
-    setSorting(state);
+    setPlotSettings({ ...state });
   };
 
   return (
     <s.HomeContainer>
       <s.HomeHeader>Welcome</s.HomeHeader>
+      <s.ChartBarContainer>
+        <HomeChart
+          projects={projects}
+          students={students}
+          settings={settings}
+        />
+      </s.ChartBarContainer>
       <s.MainContainer>
-        <HomeChart projects={projects} students={students} sorting={sorting} />
         <FilterStudent
           students={students}
           changedHandler={handleStudentCheckbox}
+        />
+        <ProjectSorter
+          settings={settings}
+          changedHandler={handleSortingChanged}
         />
       </s.MainContainer>
       <ProjectFilter
         projects={projects}
         changedHandler={handleProjectCheckbox}
-      />
-      <ProjectSorter
-        selectedsorting={sorting}
-        changedHandler={handleSortingChanged}
       />
     </s.HomeContainer>
   );
